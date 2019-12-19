@@ -1,5 +1,7 @@
 ## Gallery project
 
+[![Build Status](https://travis-ci.org/Guusy/gallery.svg?branch=master)](https://travis-ci.org/Guusy/gallery)
+
 ### Requeriments
 
 A simple web app that allows one to browse the Imgur gallery using https://api.imgur.com/
