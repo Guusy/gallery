@@ -5,11 +5,36 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "start:ci": "npm run dev & wait-on http://localhost:3000",
+    "test": "jest",
+    "test:e2e": "cypress run",
+    "cy:open": "cypress open",
+    "cy:verify": "cypress verify",
+    "lint": "eslint ./pages/** ./components/**"
   },
   "dependencies": {
     "next": "9.1.6",
     "react": "16.12.0",
     "react-dom": "16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "babel-jest": "^24.9.0",
+    "cypress": "^3.8.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-react": "^7.17.0",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "wait-on": "^3.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && npm run lint",
+      "pre-push": "npm test && npm run lint"
+    }
   }
 }
