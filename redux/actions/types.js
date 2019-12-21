@@ -1,0 +1,6 @@
+const UPDATE_GALLERY = 'UPDATE_GALLERY'
+const ERROR = 'ERROR'
+export {
+    UPDATE_GALLERY,
+    ERROR
+}

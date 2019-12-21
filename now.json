@@ -1,0 +1,10 @@
+{
+    "env": {
+        "ClientID": "@client-id"
+    },
+    "build": {
+        "env": {
+            "ClientID": "@client-id"
+        }
+    }
+}
