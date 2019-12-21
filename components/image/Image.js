@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'next/link'
 
-export const Image = ({ description, src }) => <div data-testid="image">
+export const Image = ({ id, description, src }) => <Link href={`/${id}`} data-testid="image">
     {
         src
             ? <img className="img-gallery" src={src} />
@@ -10,9 +11,10 @@ export const Image = ({ description, src }) => <div data-testid="image">
     {description && <div className="description">
         {description}
     </div>}
-</div>
+</Link>
 
 Image.propTypes = {
+    id: PropTypes.string,
     description: PropTypes.string,
     src: PropTypes.string
 }

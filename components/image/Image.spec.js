@@ -5,6 +5,8 @@ import { Image } from './Image'
 const getDescription = (component) => component.find('.description')
 const getImg = (component) => component.find('.img-gallery')
 const getNoImage = (component) => component.find('.no-img')
+const getLink = (component) => component.find('Link')
+
 
 describe('Image', () => {
     describe('when pass a description', () => {
@@ -34,6 +36,15 @@ describe('Image', () => {
         const component = shallow(<Image />)
         it('put a empty message', () => {
             expect(getNoImage(component).text()).toEqual("This image is not available.")
+        })
+    })
+
+    describe('when pass id', () => {
+        const aId = '12312zxdasx'
+        const component = shallow(<Image id={aId} />)
+
+        it('render a link to navigate with this id', () => {
+            expect(getLink(component).props().href).toEqual(`/${aId}`)
         })
     })
 })
