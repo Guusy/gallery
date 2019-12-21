@@ -1,17 +1,21 @@
 import React from 'react'
 import Head from 'next/head'
-import { Image } from '../components/image/Image'
 import { connect } from 'react-redux'
 import { getGallery } from '../redux/actions/getGallery/getGallery'
+import { ListOfImages } from '../components/listOfImages/ListOfImages'
+import { Container } from 'react-bootstrap';
+import PropTypes from 'prop-types'
 
-const Home = () => {
+const Home = ({ gallery = [] }) => {
   return (
     <div>
       <Head>
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Image />
+      <Container>
+        <ListOfImages images={gallery} />
+      </Container>
     </div>
   )
 }
@@ -25,6 +29,14 @@ const mapStateToProps = ({ gallery }) => ({
   gallery
 })
 
+Home.propTypes = {
+  gallery: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    description: PropTypes.string,
+    src: PropTypes.string
+  }))
+}
+
 export default connect(mapStateToProps)(Home)
 
-export {Home};
+export { Home };
