@@ -8,12 +8,14 @@ import { setSectionAction } from '../../redux/actions/filters/setSection/setSect
 import { setSortAction } from '../../redux/actions/filters/setSort/setSortAction';
 import { setWindowAction } from '../../redux/actions/filters/setWindow/setWindowAction';
 import { setShowViralAction } from '../../redux/actions/filters/setShowViral/setShowViralAction';
+import { getGallery } from '../../redux/actions/getGallery/getGallery';
 
 const Filters = ({ section, sort, window, showViral,
-    onChangeSection, onChangeSort, onChangeWindow, onChangeShowViral }) => {
+    onChangeSection, onChangeSort, onChangeWindow, onChangeShowViral, refreshGallery }) => {
     const handlerInput = (callback) => ({ target: { value } }) => callback(value)
     const onSubmit = (event) => {
         event.preventDefault();
+        refreshGallery();
     }
     return (<Form onSubmit={onSubmit}>
         <Row>
@@ -64,7 +66,8 @@ function mapDispatchToProps(dispatch) {
         onChangeSection: setSectionAction,
         onChangeSort: setSortAction,
         onChangeWindow: setWindowAction,
-        onChangeShowViral: setShowViralAction
+        onChangeShowViral: setShowViralAction,
+        refreshGallery: getGallery
     }, dispatch)
 }
 
@@ -74,6 +77,7 @@ Filters.propTypes = {
     onChangeWindow: PropTypes.func,
     onChangeSort: PropTypes.func,
     onChangeShowViral: PropTypes.func,
+    refreshGallery: PropTypes.func,
     window: PropTypes.string,
     sort: PropTypes.string,
     showViral: PropTypes.bool
