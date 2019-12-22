@@ -4,10 +4,14 @@ import thunkMiddleware from 'redux-thunk'
 
 const INITIAL_STATE = {
   gallery: [],
+  section: 'hot',
+  sort: 'viral',
+  window: 'day',
+  showViral: true
 }
 
 export const reducer = (state = INITIAL_STATE, { reducer = (state) => state }) => {
-    return reducer(state)
+  return reducer(state)
 }
 
 export function initializeStore(initialState = INITIAL_STATE) {
