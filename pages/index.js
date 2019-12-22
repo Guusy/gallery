@@ -5,6 +5,7 @@ import { getGallery } from '../redux/actions/getGallery/getGallery'
 import { ListOfImages } from '../components/listOfImages/ListOfImages'
 import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types'
+import { Filters } from '../components/filters/Filters'
 
 const Home = ({ gallery = [] }) => {
   return (
@@ -14,6 +15,7 @@ const Home = ({ gallery = [] }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
+        <Filters />
         <ListOfImages images={gallery} />
       </Container>
     </div>

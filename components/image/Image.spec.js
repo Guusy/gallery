@@ -6,6 +6,7 @@ const getDescription = (component) => component.find('.description')
 const getImg = (component) => component.find('.img-gallery')
 const getNoImage = (component) => component.find('.no-img')
 const getLink = (component) => component.find('Link')
+const getTitle = (component) => component.find('.title')
 
 
 describe('Image', () => {
@@ -21,6 +22,21 @@ describe('Image', () => {
         const component = shallow(<Image />)
         it('dont render it', () => {
             expect(getDescription(component).exists()).toBe(false)
+        })
+    })
+
+    describe('when pass a title', () => {
+        const aTitle = "Title ! !"
+        const component = shallow(<Image title={aTitle} />)
+        it('render it', () => {
+            expect(getTitle(component).text()).toEqual(aTitle)
+        })
+    })
+
+    describe('when NO pass a title', () => {
+        const component = shallow(<Image />)
+        it('dont render it', () => {
+            expect(getTitle(component).exists()).toBe(false)
         })
     })
 
