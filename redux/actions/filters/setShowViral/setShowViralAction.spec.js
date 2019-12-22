@@ -1,10 +1,10 @@
-import { setShowViral } from "./setShowViral"
+import { setShowViralAction } from "./setShowViralAction"
 import { SET_SHOW_VIRAL } from "../../types";
 
-describe('setShowViral', () => {
+describe('setShowViralAction', () => {
 
     it('has SET_SHOW_VIRAL type', () => {
-        const { type } = setShowViral();
+        const { type } = setShowViralAction();
         expect(type).toEqual(SET_SHOW_VIRAL)
     })
 
@@ -13,7 +13,7 @@ describe('setShowViral', () => {
         const oldState = {
             showViral: true
         }
-        const { reducer } = setShowViral(newShowViral);
+        const { reducer } = setShowViralAction(newShowViral);
         it('modify the value into the store', () => {
             const newState = reducer(oldState)
             expect(newState.showViral).toEqual(newShowViral)
