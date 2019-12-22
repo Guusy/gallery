@@ -6,8 +6,9 @@ import { ListOfImages } from '../components/listOfImages/ListOfImages'
 import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 import Filters from '../components/filters/Filters'
+import { Loading } from '../components/loading/Loading'
 
-const Home = ({ gallery = [] }) => {
+const Home = ({ gallery = [], loading }) => {
   return (
     <div>
       <Head>
@@ -16,7 +17,10 @@ const Home = ({ gallery = [] }) => {
       </Head>
       <Container>
         <Filters />
-        <ListOfImages images={gallery} />
+        {loading ?
+          <Loading />
+          : <ListOfImages images={gallery} />
+        }
       </Container>
     </div>
   )
@@ -27,11 +31,13 @@ Home.getInitialProps = async ({ reduxStore }) => {
   return {}
 }
 
-const mapStateToProps = ({ gallery }) => ({
-  gallery
+const mapStateToProps = ({ gallery, loading }) => ({
+  gallery,
+  loading
 })
 
 Home.propTypes = {
+  loading: PropTypes.bool,
   gallery: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     description: PropTypes.string,

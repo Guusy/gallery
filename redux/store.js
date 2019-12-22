@@ -7,7 +7,8 @@ const INITIAL_STATE = {
   section: 'hot',
   sort: 'viral',
   window: 'day',
-  showViral: true
+  showViral: true,
+  loading: false
 }
 
 export const reducer = (state = INITIAL_STATE, { reducer = (state) => state }) => {
