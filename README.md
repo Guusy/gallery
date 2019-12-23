@@ -20,6 +20,7 @@ A simple web app that allows one to browse the Imgur gallery using https://api.i
 - Cypress
 - Jest + Enzyme
 - Husky ( git hooks )
+- Eslint
 - Travis
 
 ### How to run ?
@@ -27,7 +28,7 @@ A simple web app that allows one to browse the Imgur gallery using https://api.i
 For development:
 
 ```bash
-    npm run dev
+npm run dev
 ```
 
 Then open http://localhost:3000/ to see the app.
@@ -37,27 +38,49 @@ Then open http://localhost:3000/ to see the app.
 #### Unit testing
 
 ```bash
-    npm run test
+npm run test
 ```
 
 ### E2E testing
 
 ```bash
-    npm run dev
+npm run dev
 ```
 
 And:
 
 ```bash
-    npm run test:e2e
+npm run test:e2e
 ```
 
+### Layout 
 
-### Deploy:
+#### Home 
 
-TODO
+![image](readme_src/home.png)
 
+#### Image Detail 
+
+![image](readme_src/imageDetail.png)
 
 ### Explanation of decisions
 
-TODO
+#### Navigation:
+
+I choose to route the application, to get the possibility to share the application URL, in this case we could share a specific image with the route `/image/[id]`.
+Also the home has query params to be easy share with friends the gallery with specific filters
+
+#### Business logic
+
+- The API responds with albums and images, I decided to skip albums because it is not easy to get the specific image to show in the details 
+
+- I decided to skip this the business logic of the API about the filters
+
+![image](readme_src/business_logic.png)
+
+#### Good practices
+
+I used a linter, husky (git hooks) to prevent push code with mistakes.
+I choose cypress for the test e2e, because it's pretty easy to develop, and integrate with travis ( CI )
+
+The `Link` of next.js automatically prefetch pages in the background as they appear in the view, this gives the great initial download performance of a website
