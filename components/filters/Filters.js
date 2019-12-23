@@ -70,7 +70,7 @@ const Filters = ({ section, sort, window, showViral,
                 />
             </Col>
             <Col className="search-col">
-                <Button variant="primary" type="submit">Search</Button>
+                <Button variant="primary" type="submit" data-testid="search-button">Search</Button>
             </Col>
         </Row>
 

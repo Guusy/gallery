@@ -6,10 +6,9 @@ import './image.css'
 export const Image = ({ id, description = "No description", src }) => {
     return (
         <div>
-
             {
-                src ? <Link href='/image/[id]' as={`/image/${id}`} data-testid="image">
-                    <BootstrapImage className="img-gallery" src={src} thumbnail />
+                src ? <Link href='/image/[id]' as={`/image/${id}`} >
+                    <BootstrapImage className="img-gallery" data-testid={id} src={src} thumbnail />
                 </Link>
                     : <span className="no-img">This image is not available.</span>
             }

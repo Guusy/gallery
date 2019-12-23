@@ -16,6 +16,7 @@ A simple web app that allows one to browse the Imgur gallery using https://api.i
 ### Technologies
 
 - Next.js
+- Redux + Redux Thunk
 - Cypress
 - Jest + Enzyme
 - Husky ( git hooks )
