@@ -1,8 +1,9 @@
 import { GalleryService } from '../../../services/GalleryService';
-import { updateImageAction, setErrorImageDetailAction } from '../index';
+import { updateImageAction, setErrorImageDetailAction, clearErrorImageDetailAction } from '../index';
 
 export const getImage = (id) => async (dispatch) => {
     try {
+        dispatch(clearErrorImageDetailAction())
         const request = await GalleryService.getImage(id);
         dispatch(updateImageAction(request.data))
     } catch (error) {

@@ -1,9 +1,10 @@
 import { GalleryService } from '../../../services/GalleryService';
-import { startLoadingAction, finishLoadingAction, updateGalleryAction, setErrorHomeAction } from '../index';
+import { startLoadingAction, finishLoadingAction, updateGalleryAction, setErrorHomeAction, clearErrorHomeAction } from '../index';
 
 export const getGallery = () => async (dispatch, getState) => {
     const { section, sort, window, showViral } = getState()
     try {
+        dispatch(clearErrorHomeAction())
         dispatch(startLoadingAction())
         const request = await GalleryService.getGallery({ section, sort, window, showViral });
         dispatch(finishLoadingAction())

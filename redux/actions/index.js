@@ -8,5 +8,7 @@ export { startLoadingAction } from './startLoading/startLoadingAction';
 export { finishLoadingAction } from './finishLoading/finishLoadingAction';
 export { updateImageAction } from './updateImage/updateImageAction';
 export { setErrorImageDetailAction } from './setErrorImageDetail/setErrorImageDetailAction';
+export { clearErrorHomeAction } from './clearErrorHome/clearErrorHomeAction';
+export { clearErrorImageDetailAction } from './clearErrorImageDetail/clearErrorImageDetailAction';
 export { getGallery } from './getGallery/getGallery';
 export { getImage } from './getImage/getImage';

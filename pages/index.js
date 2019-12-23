@@ -19,7 +19,7 @@ const Home = ({ gallery = [], loading, errorHome }) => {
         <Filters />
         {loading ?
           <Loading />
-          : errorHome ? errorHome : <ListOfImages images={gallery} />
+          : errorHome ? <span data-testid="error-home">{errorHome}</span> : <ListOfImages images={gallery} />
         }
       </Container>
     </div>
