@@ -1,6 +1,5 @@
 import { GalleryService } from '../../../services/GalleryService';
-import { updateImageAction } from '../updateImage/updateImageAction';
-import { setErrorImageDetailAction } from '../setErrorImageDetail/setErrorImageDetailAction';
+import { updateImageAction, setErrorImageDetailAction } from '../index';
 
 export const getImage = (id) => async (dispatch) => {
     try {

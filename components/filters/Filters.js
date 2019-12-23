@@ -4,11 +4,7 @@ import { Form, Row, Col, Button } from 'react-bootstrap';
 import { Select } from '../select/Select';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { setSectionAction } from '../../redux/actions/filters/setSection/setSectionAction';
-import { setSortAction } from '../../redux/actions/filters/setSort/setSortAction';
-import { setWindowAction } from '../../redux/actions/filters/setWindow/setWindowAction';
-import { setShowViralAction } from '../../redux/actions/filters/setShowViral/setShowViralAction';
-import { getGallery } from '../../redux/actions/getGallery/getGallery';
+import { setSectionAction, setSortAction, setWindowAction, setShowViralAction, getGallery } from '../../redux/actions'
 import Router from 'next/router'
 
 import './Filters.css'

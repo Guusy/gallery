@@ -1,8 +1,5 @@
 import { GalleryService } from '../../../services/GalleryService';
-import { setErrorHomeAction } from '../setErrorHome/setErrorHomeAction'
-import { updateGalleryAction } from '../updateGallery/updateGalleryAction';
-import { startLoadingAction } from '../startLoading/startLoadingAction';
-import { finishLoadingAction } from '../finishLoading/finishLoadingAction';
+import { startLoadingAction, finishLoadingAction, updateGalleryAction, setErrorHomeAction } from '../index';
 
 export const getGallery = () => async (dispatch, getState) => {
     const { section, sort, window, showViral } = getState()

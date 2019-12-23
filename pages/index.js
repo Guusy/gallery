@@ -1,16 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
 import { connect } from 'react-redux'
-import { getGallery } from '../redux/actions/getGallery/getGallery'
 import { ListOfImages } from '../components/listOfImages/ListOfImages'
 import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 import Filters from '../components/filters/Filters'
 import { Loading } from '../components/loading/Loading'
-import { setSectionAction } from '../redux/actions/filters/setSection/setSectionAction'
-import { setSortAction } from '../redux/actions/filters/setSort/setSortAction'
-import { setWindowAction } from '../redux/actions/filters/setWindow/setWindowAction'
-import { setShowViralAction } from '../redux/actions/filters/setShowViral/setShowViralAction'
+import { setSectionAction,setSortAction, setWindowAction, setShowViralAction, getGallery } from '../redux/actions'
 
 const Home = ({ gallery = [], loading, errorHome }) => {
   return (

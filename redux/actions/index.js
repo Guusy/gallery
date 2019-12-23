@@ -1,0 +1,12 @@
+export { setSectionAction } from './filters/setSection/setSectionAction'
+export { setSortAction } from './filters/setSort/setSortAction'
+export { setWindowAction } from './filters/setWindow/setWindowAction'
+export { setShowViralAction } from './filters/setShowViral/setShowViralAction'
+export { setErrorHomeAction } from './setErrorHome/setErrorHomeAction'
+export { updateGalleryAction } from './updateGallery/updateGalleryAction';
+export { startLoadingAction } from './startLoading/startLoadingAction';
+export { finishLoadingAction } from './finishLoading/finishLoadingAction';
+export { updateImageAction } from './updateImage/updateImageAction';
+export { setErrorImageDetailAction } from './setErrorImageDetail/setErrorImageDetailAction';
+export { getGallery } from './getGallery/getGallery';
+export { getImage } from './getImage/getImage';

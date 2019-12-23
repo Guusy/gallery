@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import PropTypes from 'prop-types'
-import { getImage } from '../../redux/actions/getImage/getImage'
+import { getImage } from '../../redux/actions'
 import { connect } from 'react-redux'
 import { Image as BootstrapImage, Container, Card } from 'react-bootstrap';
 import './imageDetail.css';
