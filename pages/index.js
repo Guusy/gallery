@@ -12,7 +12,7 @@ import { setSortAction } from '../redux/actions/filters/setSort/setSortAction'
 import { setWindowAction } from '../redux/actions/filters/setWindow/setWindowAction'
 import { setShowViralAction } from '../redux/actions/filters/setShowViral/setShowViralAction'
 
-const Home = ({ gallery = [], loading }) => {
+const Home = ({ gallery = [], loading, errorHome }) => {
   return (
     <div>
       <Head>
@@ -23,7 +23,7 @@ const Home = ({ gallery = [], loading }) => {
         <Filters />
         {loading ?
           <Loading />
-          : <ListOfImages images={gallery} />
+          : errorHome ? errorHome : <ListOfImages images={gallery} />
         }
       </Container>
     </div>
@@ -45,13 +45,15 @@ Home.getInitialProps = async ({ reduxStore, query: { section, sort, window, show
   return {}
 }
 
-const mapStateToProps = ({ gallery, loading }) => ({
+const mapStateToProps = ({ gallery, loading, errorHome }) => ({
   gallery,
-  loading
+  loading,
+  errorHome
 })
 
 Home.propTypes = {
   loading: PropTypes.bool,
+  errorHome: PropTypes.string,
   gallery: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string,
     description: PropTypes.string,
