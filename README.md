@@ -65,6 +65,11 @@ npm run test:e2e
 
 ### Explanation of decisions
 
+#### Redux
+
+I implemented the flow of redux without switch case.
+[Here](https://medium.com/@guusygonzalo/react-redux-without-switch-case-7f5897469296?source=friends_link&sk=4796a74f9989269209d6ce0ab8e60d5a) is my post, where I explain this new approach.
+
 #### Navigation:
 
 I choose to route the application, to get the possibility to share the application URL, in this case we could share a specific image with the route `/image/[id]`.
