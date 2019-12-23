@@ -9,6 +9,7 @@ import { setSortAction } from '../../redux/actions/filters/setSort/setSortAction
 import { setWindowAction } from '../../redux/actions/filters/setWindow/setWindowAction';
 import { setShowViralAction } from '../../redux/actions/filters/setShowViral/setShowViralAction';
 import { getGallery } from '../../redux/actions/getGallery/getGallery';
+import './Filters.css'
 
 const Filters = ({ section, sort, window, showViral,
     onChangeSection, onChangeSort, onChangeWindow, onChangeShowViral, refreshGallery }) => {
@@ -17,7 +18,7 @@ const Filters = ({ section, sort, window, showViral,
         event.preventDefault();
         refreshGallery();
     }
-    return (<Form onSubmit={onSubmit}>
+    return (<Form onSubmit={onSubmit} className="form-filters">
         <Row>
             <Col>
                 <Select
@@ -44,13 +45,20 @@ const Filters = ({ section, sort, window, showViral,
                 />
             </Col>
         </Row>
-        <Form.Check
-            type='checkbox'
-            label='Viral Images'
-            checked={showViral}
-            onChange={({ target: { checked } }) => { onChangeShowViral(checked) }}
-        />
-        <Button variant="primary" type="submit">Search</Button>
+        <Row>
+            <Col>
+                <Form.Check
+                    type='checkbox'
+                    label='Viral Images'
+                    checked={showViral}
+                    onChange={({ target: { checked } }) => { onChangeShowViral(checked) }}
+                />
+            </Col>
+            <Col className="search-col">
+                <Button variant="primary" type="submit">Search</Button>
+            </Col>
+        </Row>
+
     </Form>)
 }
 

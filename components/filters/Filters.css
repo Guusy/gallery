@@ -1,0 +1,7 @@
+.search-col {
+    display: flex;
+    justify-content: flex-end;
+}
+.form-filters{
+    padding-bottom: 1em;
+}

@@ -6,7 +6,6 @@ const getDescription = (component) => component.find('.description')
 const getImg = (component) => component.find('.img-gallery')
 const getNoImage = (component) => component.find('.no-img')
 const getLink = (component) => component.find('Link')
-const getTitle = (component) => component.find('.title')
 
 
 describe('Image', () => {
@@ -21,22 +20,7 @@ describe('Image', () => {
     describe('when NO pass a description', () => {
         const component = shallow(<Image />)
         it('dont render it', () => {
-            expect(getDescription(component).exists()).toBe(false)
-        })
-    })
-
-    describe('when pass a title', () => {
-        const aTitle = "Title ! !"
-        const component = shallow(<Image title={aTitle} />)
-        it('render it', () => {
-            expect(getTitle(component).text()).toEqual(aTitle)
-        })
-    })
-
-    describe('when NO pass a title', () => {
-        const component = shallow(<Image />)
-        it('dont render it', () => {
-            expect(getTitle(component).exists()).toBe(false)
+            expect(getDescription(component).text()).toEqual("No description")
         })
     })
 
@@ -55,12 +39,12 @@ describe('Image', () => {
         })
     })
 
-    describe('when pass id', () => {
+    describe('when pass id and src', () => {
         const aId = '12312zxdasx'
-        const component = shallow(<Image id={aId} />)
+        const component = shallow(<Image src="12312312" id={aId} />)
 
         it('render a link to navigate with this id', () => {
-            expect(getLink(component).props().href).toEqual(`/${aId}`)
+            expect(getLink(component).props().as).toEqual(`/image/${aId}`)
         })
     })
 })

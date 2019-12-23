@@ -1,0 +1,19 @@
+.img-gallery{
+    cursor: pointer;
+    width: 40vh;
+    height: 40vh;
+}
+
+@media (max-width: 600px) {
+    .img-gallery {
+        width: 25vh;
+        height: 25vh;
+    }
+}
+
+.description{
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

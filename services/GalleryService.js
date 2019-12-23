@@ -10,4 +10,8 @@ export class GalleryService extends Restclient {
         })
     }
 
+    static getImage(id) {
+        return this.get(`/gallery/image/${id}`)
+    }
+
 }
