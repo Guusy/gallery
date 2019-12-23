@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import { Select } from '../select/Select';
@@ -9,15 +9,26 @@ import { setSortAction } from '../../redux/actions/filters/setSort/setSortAction
 import { setWindowAction } from '../../redux/actions/filters/setWindow/setWindowAction';
 import { setShowViralAction } from '../../redux/actions/filters/setShowViral/setShowViralAction';
 import { getGallery } from '../../redux/actions/getGallery/getGallery';
+import Router from 'next/router'
+
 import './Filters.css'
 
 const Filters = ({ section, sort, window, showViral,
     onChangeSection, onChangeSort, onChangeWindow, onChangeShowViral, refreshGallery }) => {
-    const handlerInput = (callback) => ({ target: { value } }) => callback(value)
+    const handlerInput = (callback) => ({ target: { value } }) => {
+
+        callback(value)
+    }
     const onSubmit = (event) => {
         event.preventDefault();
         refreshGallery();
     }
+
+    useEffect(() => {
+        const href = `/?section=${section}&sort=${sort}&window=${window}&showViral=${showViral}`
+        Router.push(href, href, { shallow: true })
+    }, [section, sort, window, showViral])
+
     return (<Form onSubmit={onSubmit} className="form-filters">
         <Row>
             <Col>
@@ -26,6 +37,7 @@ const Filters = ({ section, sort, window, showViral,
                     onChange={handlerInput(onChangeSection)}
                     options={['hot', 'top', 'user']}
                     value={section}
+                    type='section'
                 />
             </Col>
             <Col>
@@ -34,6 +46,7 @@ const Filters = ({ section, sort, window, showViral,
                     onChange={handlerInput(onChangeSort)}
                     options={['viral', 'top', 'time', 'rising']}
                     value={sort}
+                    type='sort'
                 />
             </Col>
             <Col>
@@ -42,12 +55,14 @@ const Filters = ({ section, sort, window, showViral,
                     onChange={handlerInput(onChangeWindow)}
                     options={['day', 'week', 'month', 'year', 'all']}
                     value={window}
+                    type='window'
                 />
             </Col>
         </Row>
         <Row>
             <Col>
                 <Form.Check
+                    data-testid="showViral-filter"
                     type='checkbox'
                     label='Viral Images'
                     checked={showViral}
